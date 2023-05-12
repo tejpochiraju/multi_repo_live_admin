@@ -1,11 +1,15 @@
 import Config
 
 # Configure your database
-config :app_a, AppA.Repo,
-  database: Path.expand("../app_a_dev.db", Path.dirname(__ENV__.file)),
+db_config = [
+  database: Path.expand("../multi_repo_live_admin_dev.db", Path.dirname(__ENV__.file)),
   pool_size: 5,
   stacktrace: true,
   show_sensitive_data_on_connection_error: true
+]
+
+config :app_a, AppA.Repo, db_config
+config :app_b, AppB.Repo, db_config
 
 # For development, we disable any cache and enable
 # debugging and code reloading.

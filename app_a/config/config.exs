@@ -8,7 +8,7 @@
 import Config
 
 config :app_a,
-  ecto_repos: [AppA.Repo]
+  ecto_repos: [AppB.Repo, AppA.Repo]
 
 # Configures the endpoint
 config :app_a, AppAWeb.Endpoint,
