@@ -18,4 +18,6 @@ _NB - `cd` and similar commands skipped for brevity.`
 mix phx.new app_b --database sqlite3
 mix phx.gen.json Accounts User users name email
 mix phx.new app_a --database sqlite3
+# In AppA
+mix phx.gen.json Admin Role roles name
 ```
