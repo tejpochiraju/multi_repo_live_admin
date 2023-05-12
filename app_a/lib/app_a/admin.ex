@@ -101,4 +101,100 @@ defmodule AppA.Admin do
   def change_role(%Role{} = role, attrs \\ %{}) do
     Role.changeset(role, attrs)
   end
+
+  alias AppA.Admin.UserRoleMapping
+
+  @doc """
+  Returns the list of user_role_mappings.
+
+  ## Examples
+
+      iex> list_user_role_mappings()
+      [%UserRoleMapping{}, ...]
+
+  """
+  def list_user_role_mappings do
+    Repo.all(UserRoleMapping)
+  end
+
+  @doc """
+  Gets a single user_role_mapping.
+
+  Raises `Ecto.NoResultsError` if the User role mapping does not exist.
+
+  ## Examples
+
+      iex> get_user_role_mapping!(123)
+      %UserRoleMapping{}
+
+      iex> get_user_role_mapping!(456)
+      ** (Ecto.NoResultsError)
+
+  """
+  def get_user_role_mapping!(id), do: Repo.get!(UserRoleMapping, id)
+
+  @doc """
+  Creates a user_role_mapping.
+
+  ## Examples
+
+      iex> create_user_role_mapping(%{field: value})
+      {:ok, %UserRoleMapping{}}
+
+      iex> create_user_role_mapping(%{field: bad_value})
+      {:error, %Ecto.Changeset{}}
+
+  """
+  def create_user_role_mapping(attrs \\ %{}) do
+    %UserRoleMapping{}
+    |> UserRoleMapping.changeset(attrs)
+    |> Repo.insert()
+  end
+
+  @doc """
+  Updates a user_role_mapping.
+
+  ## Examples
+
+      iex> update_user_role_mapping(user_role_mapping, %{field: new_value})
+      {:ok, %UserRoleMapping{}}
+
+      iex> update_user_role_mapping(user_role_mapping, %{field: bad_value})
+      {:error, %Ecto.Changeset{}}
+
+  """
+  def update_user_role_mapping(%UserRoleMapping{} = user_role_mapping, attrs) do
+    user_role_mapping
+    |> UserRoleMapping.changeset(attrs)
+    |> Repo.update()
+  end
+
+  @doc """
+  Deletes a user_role_mapping.
+
+  ## Examples
+
+      iex> delete_user_role_mapping(user_role_mapping)
+      {:ok, %UserRoleMapping{}}
+
+      iex> delete_user_role_mapping(user_role_mapping)
+      {:error, %Ecto.Changeset{}}
+
+  """
+  def delete_user_role_mapping(%UserRoleMapping{} = user_role_mapping) do
+    Repo.delete(user_role_mapping)
+  end
+
+  @doc """
+  Returns an `%Ecto.Changeset{}` for tracking user_role_mapping changes.
+
+  ## Examples
+
+      iex> change_user_role_mapping(user_role_mapping)
+      %Ecto.Changeset{data: %UserRoleMapping{}}
+
+  """
+  def change_user_role_mapping(%UserRoleMapping{} = user_role_mapping, attrs \\ %{}) do
+    UserRoleMapping.changeset(user_role_mapping, attrs)
+  end
 end

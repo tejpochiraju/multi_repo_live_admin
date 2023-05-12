@@ -20,4 +20,6 @@ mix phx.gen.json Accounts User users name email
 mix phx.new app_a --database sqlite3
 # In AppA
 mix phx.gen.json Admin Role roles name
+mix phx.gen.json Admin UserRoleMapping user_role_mappings user_id:references:users role_id:references:roles
+# At this point, the migration will fail because AppA doesn't know about `users` yet.
 ```

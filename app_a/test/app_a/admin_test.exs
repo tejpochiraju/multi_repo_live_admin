@@ -56,4 +56,56 @@ defmodule AppA.AdminTest do
       assert %Ecto.Changeset{} = Admin.change_role(role)
     end
   end
+
+  describe "user_role_mappings" do
+    alias AppA.Admin.UserRoleMapping
+
+    import AppA.AdminFixtures
+
+    @invalid_attrs %{}
+
+    test "list_user_role_mappings/0 returns all user_role_mappings" do
+      user_role_mapping = user_role_mapping_fixture()
+      assert Admin.list_user_role_mappings() == [user_role_mapping]
+    end
+
+    test "get_user_role_mapping!/1 returns the user_role_mapping with given id" do
+      user_role_mapping = user_role_mapping_fixture()
+      assert Admin.get_user_role_mapping!(user_role_mapping.id) == user_role_mapping
+    end
+
+    test "create_user_role_mapping/1 with valid data creates a user_role_mapping" do
+      valid_attrs = %{}
+
+      assert {:ok, %UserRoleMapping{} = user_role_mapping} = Admin.create_user_role_mapping(valid_attrs)
+    end
+
+    test "create_user_role_mapping/1 with invalid data returns error changeset" do
+      assert {:error, %Ecto.Changeset{}} = Admin.create_user_role_mapping(@invalid_attrs)
+    end
+
+    test "update_user_role_mapping/2 with valid data updates the user_role_mapping" do
+      user_role_mapping = user_role_mapping_fixture()
+      update_attrs = %{}
+
+      assert {:ok, %UserRoleMapping{} = user_role_mapping} = Admin.update_user_role_mapping(user_role_mapping, update_attrs)
+    end
+
+    test "update_user_role_mapping/2 with invalid data returns error changeset" do
+      user_role_mapping = user_role_mapping_fixture()
+      assert {:error, %Ecto.Changeset{}} = Admin.update_user_role_mapping(user_role_mapping, @invalid_attrs)
+      assert user_role_mapping == Admin.get_user_role_mapping!(user_role_mapping.id)
+    end
+
+    test "delete_user_role_mapping/1 deletes the user_role_mapping" do
+      user_role_mapping = user_role_mapping_fixture()
+      assert {:ok, %UserRoleMapping{}} = Admin.delete_user_role_mapping(user_role_mapping)
+      assert_raise Ecto.NoResultsError, fn -> Admin.get_user_role_mapping!(user_role_mapping.id) end
+    end
+
+    test "change_user_role_mapping/1 returns a user_role_mapping changeset" do
+      user_role_mapping = user_role_mapping_fixture()
+      assert %Ecto.Changeset{} = Admin.change_user_role_mapping(user_role_mapping)
+    end
+  end
 end

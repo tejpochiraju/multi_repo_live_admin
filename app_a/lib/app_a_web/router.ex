@@ -24,6 +24,7 @@ defmodule AppAWeb.Router do
   scope "/api", AppAWeb do
     pipe_through(:api)
     resources("/roles", RoleController, except: [:new, :edit])
+    resources("/user_role_mappings", UserRoleMappingController, except: [:new, :edit])
   end
 
   # Enable LiveDashboard and Swoosh mailbox preview in development

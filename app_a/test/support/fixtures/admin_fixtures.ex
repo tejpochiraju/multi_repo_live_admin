@@ -17,4 +17,18 @@ defmodule AppA.AdminFixtures do
 
     role
   end
+
+  @doc """
+  Generate a user_role_mapping.
+  """
+  def user_role_mapping_fixture(attrs \\ %{}) do
+    {:ok, user_role_mapping} =
+      attrs
+      |> Enum.into(%{
+
+      })
+      |> AppA.Admin.create_user_role_mapping()
+
+    user_role_mapping
+  end
 end
