@@ -1,5 +1,6 @@
 defmodule AppAWeb.Router do
   use AppAWeb, :router
+  import LiveAdmin.Router
 
   pipeline :browser do
     plug(:accepts, ["html"])
@@ -18,6 +19,14 @@ defmodule AppAWeb.Router do
     pipe_through(:browser)
 
     get("/", PageController, :home)
+
+    live_admin("/admin",
+      resources: [
+        {AppB.Accounts.User, label_with: :email},
+        {AppA.Admin.Role, label_with: :name},
+        AppA.Admin.UserRoleMapping
+      ]
+    )
   end
 
   # Other scopes may use custom stacks.

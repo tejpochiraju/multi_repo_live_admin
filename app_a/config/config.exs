@@ -62,6 +62,11 @@ config :logger, :console,
 # Use Jason for JSON parsing in Phoenix
 config :phoenix, :json_library, Jason
 
+# Configure LiveAdmin
+config :live_admin,
+  ecto_repo: AppA.Repo,
+  immutable_fields: [:id, :inserted_at, :updated_at]
+
 # Import environment specific config. This must remain at the bottom
 # of this file so it overrides the configuration defined above.
 import_config "#{config_env()}.exs"

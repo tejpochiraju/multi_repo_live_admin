@@ -50,7 +50,8 @@ defmodule AppA.MixProject do
       {:gettext, "~> 0.20"},
       {:jason, "~> 1.2"},
       {:plug_cowboy, "~> 2.5"},
-      {:app_b, path: "../app_b"}
+      {:app_b, path: "../app_b"},
+      {:live_admin, "~> 0.8.0"}
     ]
   end
 
