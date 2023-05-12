@@ -12,6 +12,9 @@
 
 ## Steps
 
+_NB - `cd` and similar commands skipped for brevity.`
+
 ```
 mix phx.new app_b --database sqlite3
+mix phx.gen.json Accounts User users name email
 ```
