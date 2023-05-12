@@ -8,3 +8,10 @@
     - Not really relevant to this demo but we are going to prevent `AppB` from starting its endpoint when run in `AppA`'s supervision tree.
 - We will install and configure `live_admin` in `AppA` to access schemas from both apps.
 - Each step is documented as a commit so use the commits to follow along.
+
+
+## Steps
+
+```
+mix phx.new app_b --database sqlite3
+```
