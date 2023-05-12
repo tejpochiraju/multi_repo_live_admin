@@ -20,6 +20,9 @@ config :app_a, AppAWeb.Endpoint,
   pubsub_server: AppA.PubSub,
   live_view: [signing_salt: "Ie7ey398"]
 
+# Configure app_b so it uses the same endpoint.
+config :app_b, :parent_endpoint, AppAWeb.Endpoint
+
 # Configures the mailer
 #
 # By default it uses the "Local" adapter which stores the emails
